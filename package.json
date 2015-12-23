@@ -1,0 +1,29 @@
+{
+  "name": "postcss-combine-mq",
+  "author": "Simon Goellner",
+  "version": "0.1.0",
+  "description": "Combine media queries that are identical, keeping the source-order",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava && eslint *.js"
+  },
+  "keywords": [
+    "css",
+    "post",
+    "postcss",
+    "postcss-plugin",
+    "move",
+    "combine",
+    "media",
+    "queries",
+    "mq"
+  ],
+  "dependencies": {
+    "postcss": "^5.0.13"
+  },
+  "devDependencies": {
+    "ava": "^0.7.0",
+    "eslint": "^1.10.2"
+  }
+}
