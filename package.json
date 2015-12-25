@@ -23,6 +23,7 @@
     "postcss": "^5.0.13"
   },
   "devDependencies": {
+    "eslint": "^1.10.3",
     "fs": "0.0.2",
     "mocha": "^2.3.4",
     "should": "^8.0.2"
