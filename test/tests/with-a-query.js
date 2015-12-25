@@ -9,9 +9,9 @@ require("should");
 
 module.exports = function () {
 
-    describe("basic css", function () {
+    describe("css with a media query", function () {
 
-        var i = "test/fixtures/basic.css",
+        var i = "test/fixtures/with-a-query.css",
             fixture = fs.readFileSync( i, "utf-8"),
             result;
 
@@ -33,13 +33,13 @@ module.exports = function () {
 
         });
 
-        it("should have 0 @media rules", function () {
+        it("should have 1 @media rule", function () {
 
-            result.should.not.match( /@media/g );
+            result.match( /@media/g ).should.have.length(1);
 
         });
 
-        it("should have 1 @keyframes rule", function () {
+        it("should have 1 @keyframe rule", function () {
 
             result.match( /@keyframes/g ).should.have.length(1);
 
@@ -53,14 +53,13 @@ module.exports = function () {
 
         describe("color declarations", function () {
 
-            it("should equal 3", function () {
+            it("should equal 5", function () {
 
-                result.match( /color/g ).should.have.length(3);
+                result.match( /color/g ).should.have.length(5);
 
             });
 
         });
-
 
     });
 
