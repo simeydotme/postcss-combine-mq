@@ -9,9 +9,9 @@ require("should");
 
 module.exports = function () {
 
-    describe("basic css", function () {
+    describe("css with multiple media queries", function () {
 
-        var i = "test/fixtures/basic.css",
+        var i = "test/fixtures/with-multiple-queries.css",
             fixture = fs.readFileSync( i, "utf-8"),
             result;
 
@@ -33,15 +33,15 @@ module.exports = function () {
 
         });
 
-        it("should have 0 @media rules", function () {
+        it("should have 2 @media rules", function () {
 
-            result.should.not.match( /@media/g );
+            result.match( /@media/g ).should.have.length(2);
 
         });
 
-        it("should have 1 @keyframes rule", function () {
+        it("should have 2 @keyframe rules", function () {
 
-            result.match( /@keyframes/g ).should.have.length(1);
+            result.match( /@keyframes/g ).should.have.length(2);
 
         });
 
@@ -51,16 +51,25 @@ module.exports = function () {
 
         });
 
-        describe("color declarations", function () {
+        describe("background declarations", function () {
 
-            it("should equal 3", function () {
+            it("should equal 2", function () {
 
-                result.match( /color/g ).should.have.length(3);
+                result.match( /background/g ).should.have.length(2);
 
             });
 
         });
 
+        describe("color declarations", function () {
+
+            it("should equal 7", function () {
+
+                result.match( /color/g ).should.have.length(7);
+
+            });
+
+        });
 
     });
 
