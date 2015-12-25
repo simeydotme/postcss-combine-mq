@@ -12,25 +12,23 @@ module.exports = function () {
     describe("Basic Fixture", function () {
 
         var i = "test/fixtures/basic.css",
-            o = "test/fixtures/results/basic.css",
-            fixture = fs.readFileSync( i, "utf-8");
+            fixture = fs.readFileSync( i, "utf-8"),
+            result;
 
         postcss([ combine ])
             .process( fixture )
-            .then(function (result) {
-                fs.writeFileSync( o, result.css );
+            .then( function ( out ) {
+                result = out.css;
             });
 
         it("Should not be empty", function () {
 
-            var result = fs.readFileSync( o, "utf-8");
             result.should.not.be.empty();
 
         });
 
         it("Should be the same as /result/", function () {
 
-            var result = fs.readFileSync( o, "utf-8");
             fixture.should.equal( result );
 
         });
@@ -39,7 +37,6 @@ module.exports = function () {
 
             it("Should match 0 occurrences", function () {
 
-                var result = fs.readFileSync( o, "utf-8");
                 result.should.not.match( /@media/ );
 
             });
@@ -50,7 +47,6 @@ module.exports = function () {
 
             it("Should match 1 occurrence", function () {
 
-                var result = fs.readFileSync( o, "utf-8");
                 result.match( /@keyframes/g ).should.have.length(1);
 
             });
@@ -61,7 +57,6 @@ module.exports = function () {
 
             it("Should match 1 occurrence", function () {
 
-                var result = fs.readFileSync( o, "utf-8");
                 result.match( /@charset/ ).should.have.length(1);
 
             });
