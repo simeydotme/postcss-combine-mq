@@ -6,7 +6,7 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./test/ && eslint **/*.js"
+    "test": "mocha ./test/tests/*.js && eslint **/*.js"
   },
   "keywords": [
     "css",
@@ -24,7 +24,6 @@
   },
   "devDependencies": {
     "eslint": "^1.10.3",
-    "fs": "0.0.2",
     "mocha": "^2.3.4",
     "should": "^8.0.2"
   }
