@@ -1,7 +1,7 @@
 {
   "name": "postcss-combine-mq",
   "author": "Simon Goellner",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Combine media queries that are identical, keeping the source-order",
   "license": "MIT",
   "main": "index.js",
